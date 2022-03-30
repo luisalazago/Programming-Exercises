@@ -1,63 +1,33 @@
 #include <iostream>
 #include <vector>
-#include <set>
 
+#define INFINITO 2000000
 #define endl '\n'
 
 using namespace std;
 
 int main() {
-	int numero, numero2, numoriginal;
-	set<vector<int>> res;
-	set<vector<int>>::iterator it;
-	vector<int> multiplos, temp;
+	int cases, estudiantes, examenes, numero;
+	vector<vector<int>> tests;
+	vector<vector<int>> bons_abst;
 
-	cin >> numero;
-	while(numero) {
-		numoriginal = numero;
-		int k = 2;
-		while(numero > 1) {
-			if(numero % k == 0) {
-				numero /= k;
-				multiplos.push_back(k);
+	cin >> cases;
+	while(cases--) {
+		cin >> estudiantes >> examenes;
+		tests = vector<vector<int>>(estudiantes, vector<int>(examenes));
+		bons_abst = vector<vector<int>>(estudiantes, vector<int>(2));
+		for(int i = 0; i < estudiantes; ++i) {
+			for(int j = 0; j < examenes; ++i) {
+				cin >> numero;
+				tests[i][j] = numero;
 			}
-			else ++k;
+			cin >> numero;
+			bons_abst[i][0] = numero;
+			cin >> numero;
+			bons_abst[i][1] = numero;
 		}
 
-		/*
-		for(int i = 0; i < multiplos.size(); ++i) {
-			if(i == (multiplos.size() - 1)) cout << multiplos[i] << endl;
-			else cout << multiplos[i] << " ";
-		}
-		*/
-
-		if(numoriginal == 1) cout << 0 << endl;
-		else {
-			res.insert(multiplos);
-			for(int i = 0; i < multiplos.size() - 1; ++i) {
-				for(int j = i; j < multiplos.size(); ++j) {
-					if(j != (multiplos.size() - 1)) {
-						numero2 = multiplos[j] * multiplos[j + 1];
-						temp.push_back(numero2);
-						++j;
-					}
-					else temp.push_back(multiplos[j]);
-				}
-				res.insert(temp);
-				temp = vector<int>();
-			}
-
-			cout << res.size() << endl;
-			for(it = res.begin(); it != res.end(); ++it) {
-				for(int i = 0; i < (*it).size(); ++i) {
-					if(i == ((*it).size() - 1)) cout << (*it)[i] << endl;
-					else cout << (*it)[i] << " ";
-				}
-			}
-		}
-
-		multiplos.clear();
-		cin >> numero;
+		
 	}
 
 	return 0;
