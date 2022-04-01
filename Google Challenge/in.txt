@@ -1,6 +1,3 @@
-abcabcabcabc
-abccbaabccba
-abcaabca
-abcdefghijkl
-aaa
-a
+[4, 30, 50]
+[4, 17, 50]
+[4, 4, 4, 4]
