@@ -31,12 +31,12 @@ int main() {
 		padre[nodo_incial] = nodo_incial; // Este marca el camino.
 
 		while(!cola.empty()) {
-			nodo = cola.front() // Coge el elemento en la punta.
-			cola.pop() // Lo quita de la cola.
+			nodo = cola.front(); // Coge el elemento en la punta.
+			cola.pop(); // Lo quita de la cola.
 			if(nodo == nodo_final) break;
 
-			for(int i = 0; i < nodos[nodo]; ++i) {
-				aux = nodos[nodo]; // El hijo del nodo.
+			for(int i = 0; i < nodos[nodo].size(); ++i) {
+				aux = nodos[nodo][i]; // El hijo del nodo.
 				if(!visitados[aux]) {
 					cola.push(aux); // Se añade el hijo a la cola.
 					++visitados[aux]; // Se marca.
